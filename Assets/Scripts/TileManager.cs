@@ -12,7 +12,7 @@ public class TileManager : MonoBehaviour
     public int numberOfTiles = 5;
     public List<GameObject> activeTiles = new List<GameObject>();
 
-    public int hardMode; // change the mode
+    public static int hardMode; // change the mode
     public int tileCounter;
 
 

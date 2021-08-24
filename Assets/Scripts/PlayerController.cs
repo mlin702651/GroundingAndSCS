@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     // speed settings
-    public static float moveSpeed = 50;
+    public static float moveSpeed = 10;
     public float rotationSpeed = 200f;
     public float currentRotationSpeed;
 
@@ -53,24 +53,15 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    private void OnControllerColliderHit(ControllerColliderHit hit)
-    {
-        if(hit.transform.tag == "Wall")
-        {
-            PlayerManager.gameOver = true;
-            Debug.Log("hit wall!");
-        }
-        Debug.Log("hit1");
-    }
+    
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.transform.tag == "Wall")
         {
             PlayerManager.gameOver = true;
-            Debug.Log("hit wall2!");
+            Debug.Log("hit wall!");
         }
-        Debug.Log("hit2");
     }
 
     void SmoothRoatation(float currentRotationSpeed)
