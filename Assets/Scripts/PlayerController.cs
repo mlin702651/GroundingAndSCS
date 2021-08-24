@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     // speed settings
-    public float moveSpeed = 3;
+    public float moveSpeed = 3/2;
     public float rotationSpeed = 100.0f;
 
     // get game objects
@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         // if gameStart = false, don't start
-        if (!PlayerManager.gameStart) return;
+        //if (!PlayerManager.gameStart) return;
 
         // move
         Cam.transform.Translate(0, 0, moveSpeed * Time.deltaTime, Space.World);
