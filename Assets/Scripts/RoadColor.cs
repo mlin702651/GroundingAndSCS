@@ -19,7 +19,7 @@ public class RoadColor : MonoBehaviour
     float countTime=0;
     bool countTimeEquleOne=false;
     //
-    public int score=0;
+    public float score=0;
 
 
     // Start is called before the first frame update
@@ -36,13 +36,13 @@ public class RoadColor : MonoBehaviour
     void Update()
     {
         // get score from PlayerManager
-        score = PlayerManager.score;
-
-        if (score % changeColor ==0 && !isChangingColor){
+        score +=Time.deltaTime;
+        if (score >6 && !isChangingColor){
             countColor+=1;
             countColor=countColor%3;
             isChangingColor=true;
             countTime=0;
+            score=0;
         }
        
         if(isChangingColor){
@@ -74,7 +74,5 @@ public class RoadColor : MonoBehaviour
         else{
             countTimeEquleOne=true;
         }
-        Debug.Log(type);
-        
     }
 }
