@@ -20,19 +20,25 @@ public class RoadColor : MonoBehaviour
     bool countTimeEquleOne=false;
     //
     public int score=0;
+
+
     // Start is called before the first frame update
     void Start()
     {
         material.SetColor("_Color", new Color(0,0.37f,0.9f));
         currentColor=color03;
         nextColor=color03;
+        //score = PlayerManager.score;
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(score%6==0 && !isChangingColor){
+        // get score from PlayerManager
+        score = PlayerManager.score;
+
+        if (score%6==0 && !isChangingColor){
             countColor+=1;
             countColor=countColor%3;
             isChangingColor=true;

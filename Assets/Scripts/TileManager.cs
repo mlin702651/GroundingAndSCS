@@ -12,14 +12,14 @@ public class TileManager : MonoBehaviour
     public int numberOfTiles = 5;
     public List<GameObject> activeTiles = new List<GameObject>();
 
-    public int hardMode;
+    public int hardMode; // change the mode
     public int tileCounter;
 
 
     // Start is called before the first frame update
     void Start()
     {
-
+        zSpawn += tileLength;
         for (int i = 0; i < numberOfTiles; i++)
         {
             if (i < 3) SpawnTile(0);
@@ -27,37 +27,50 @@ public class TileManager : MonoBehaviour
         }
 
         hardMode = 1;
-        tileCounter = 0;
+        tileCounter = 1;
     }
 
     // Update is called once per frame
     void Update()
     {
-        /*
-        if( playerTransform.position.z > zSpawn - (numberOfTiles - 1.1) * tileLength )
-        {
-            SpawnTile(Random.Range(0, tilePrefabs.Length));
-            DeleteTile();
-        }
-        */
+        //*** First Tile ***//
 
 
-        if (hardMode == 0) // Easy Mode
+
+        //*** Mode Changing ***//
+        if (tileCounter % 6 == 0) hardMode++;
+
+
+
+        //*** Tile spawning ***//
+        if (hardMode == 1) // Mode 1
         {
+            // spawn tile when it moves forward
             if (playerTransform.position.z > zSpawn - (numberOfTiles - 1.1) * tileLength)
             {
-                if (tileCounter == 0) { SpawnTile(0); DeleteTile(); tileCounter++; }
-                else if (tileCounter == 1) { SpawnTile(Random.Range(0, 4)); DeleteTile(); tileCounter++; }
-                else if (tileCounter == 2) { SpawnTile(Random.Range(1, 4)); DeleteTile(); tileCounter = 0; }
+                SpawnTile(Random.Range(0, 5));
+                DeleteTile();
+                tileCounter++;
             }
         }
-        else if (hardMode == 1) // Normal Mode
+        else if (hardMode == 2) // Mode 2
         {
+            // spawn tile when it moves forward
             if (playerTransform.position.z > zSpawn - (numberOfTiles - 1.1) * tileLength)
             {
-                if (tileCounter == 0) { SpawnTile(0); DeleteTile(); tileCounter++; }
-                else if (tileCounter == 1) { SpawnTile(Random.Range(1, 4)); DeleteTile(); tileCounter++; }
-                else if (tileCounter == 2) { SpawnTile(Random.Range(1, 7)); DeleteTile(); tileCounter = 0; }
+                SpawnTile(Random.Range(6, 11));
+                DeleteTile();
+                tileCounter++;
+            }
+        }
+        else if (hardMode == 3) // Mode 3
+        {
+            // spawn tile when it moves forward
+            if (playerTransform.position.z > zSpawn - (numberOfTiles - 1.1) * tileLength)
+            {
+                SpawnTile(Random.Range(12, 17));
+                DeleteTile();
+                tileCounter++;
             }
         }
 
@@ -66,6 +79,7 @@ public class TileManager : MonoBehaviour
     public void SpawnTile(int tileIndex)
     {
         GameObject go = Instantiate(tilePrefabs[tileIndex], transform.forward * zSpawn, transform.rotation);
+        go.transform.Rotate(0, 180, 0);
         activeTiles.Add(go);
         zSpawn += tileLength;
     }

@@ -5,16 +5,19 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     // speed settings
-    public float moveSpeed = 3;
-    public float rotationSpeed = 100.0f;
+    public static float moveSpeed = 50;
+    public float rotationSpeed = 200f;
+    public float currentRotationSpeed;
 
-    // get game objects
-    public GameObject Cam;
+
+    // angles
+    public Vector3 myAngles;
+    public Vector3 rotateAngles;
 
     // Start is called before the first frame update
     void Start()
     {
-        Cam = GameObject.Find("Main Camera");
+        //Cam = GameObject.Find("Main Camera");
 
     }
 
@@ -25,7 +28,6 @@ public class PlayerController : MonoBehaviour
         if (!PlayerManager.gameStart) return;
 
         // move
-        Cam.transform.Translate(0, 0, moveSpeed * Time.deltaTime, Space.World);
         transform.Translate(0, 0, moveSpeed * Time.deltaTime, Space.World);
 
         
@@ -33,26 +35,49 @@ public class PlayerController : MonoBehaviour
         float rotationLR = 0;
         float rotationUD = 0;
 
-        // Keycode settings
-        if (Input.GetKey(KeyCode.LeftArrow)||Input.GetKey(KeyCode.RightArrow))
-            rotationLR = Input.GetAxis("Horizontal") * rotationSpeed * (-1);
-        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))
-            rotationUD = Input.GetAxis("Vertical") * rotationSpeed;
+        // Keycode settings for rotation
+        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))
+        {
+            currentRotationSpeed = rotationSpeed;
+            rotationLR = Input.GetAxis("Horizontal") * currentRotationSpeed * (-1) * Time.deltaTime;
+            rotationUD = Input.GetAxis("Vertical") * currentRotationSpeed * Time.deltaTime;
+            transform.Rotate(rotationUD, rotationLR, 0, Space.World);
+        }
+        else
+        {
+            SmoothRoatation(currentRotationSpeed);
+        }
+        
+       
 
-        // rotatoin
-        rotationLR *= Time.deltaTime;
-        rotationUD *= Time.deltaTime;
-        
-        transform.Rotate(rotationUD, rotationLR, 0, Space.World);
-        
+
     }
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if(hit.transform.tag == "wall")
+        if(hit.transform.tag == "Wall")
         {
             PlayerManager.gameOver = true;
+            Debug.Log("hit wall!");
         }
+        Debug.Log("hit1");
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.transform.tag == "Wall")
+        {
+            PlayerManager.gameOver = true;
+            Debug.Log("hit wall2!");
+        }
+        Debug.Log("hit2");
+    }
+
+    void SmoothRoatation(float currentRotationSpeed)
+    {
+        //if (currentRotationSpeed > 0) currentRotationSpeed -= rotationSpeed /60;
+        if (currentRotationSpeed > 0) currentRotationSpeed -= Time.time;
+        //if (currentRotationSpeed > 0) currentRotationSpeed = currentRotationSpeed*2/3;
+        if (currentRotationSpeed < 20) currentRotationSpeed = 0;
+    }
 }
