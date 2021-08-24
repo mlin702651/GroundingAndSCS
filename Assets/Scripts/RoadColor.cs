@@ -36,7 +36,7 @@ public class RoadColor : MonoBehaviour
     void Update()
     {
         // get score from PlayerManager
-        score = PlayerManager.score;
+        //score = PlayerManager.score;
 
         if (score % changeColor ==0 && !isChangingColor){
             countColor+=1;
