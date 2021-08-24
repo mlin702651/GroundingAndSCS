@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
     // Bools of Game Start & Over
-    public static bool gameStart, gameOver;
+    public static bool gameStart, gameOver, finish;
 
     // Score
     public static int score;
@@ -41,13 +41,20 @@ public class PlayerManager : MonoBehaviour
             Debug.Log("start!");
         }
 
+        /*
         // game over
         if (gameOver)
         {
             Time.timeScale = 0;
             gameOverPanel.SetActive(true);
         }
+        */
 
+        // finish
+        if (finish)
+        {
+            
+        }
         
     }
     

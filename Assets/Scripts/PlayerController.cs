@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -59,7 +60,9 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.transform.tag == "Wall")
         {
-            PlayerManager.gameOver = true;
+            //PlayerManager.gameOver = true;
+            Scene scene = SceneManager.GetActiveScene();
+            SceneManager.LoadScene(scene.name);
             Debug.Log("hit wall!");
         }
     }
