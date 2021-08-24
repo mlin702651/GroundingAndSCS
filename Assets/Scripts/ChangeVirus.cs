@@ -20,7 +20,7 @@ public class ChangeVirus : MonoBehaviour
     {
         if (!PlayerManager.gameStart) return;
 
-
+        /*
         if(PlayerManager.score % 6 == 0 && canChange)
         {
             virus[virusMode].SetActive(false);
@@ -32,9 +32,15 @@ public class ChangeVirus : MonoBehaviour
         {
             canChange = true;
         }
+        */
 
-        
-        
+        if (PlayerManager.score == 6)
+        {
+            virus[0].SetActive(false);
+            virus[virusMode].SetActive(true);
+            canChange = false;
+        }
+
 
     }
 }
