@@ -36,3 +36,4 @@ sysinfo.txt
 *.apk
 *.unitypackage
 Packages/packages-lock.json
+Assets/Materials/Shader Graphs_glow.mat
