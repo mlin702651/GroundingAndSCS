@@ -6637,6 +6637,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 529581449}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1130156259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1130156258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2893f74e7ab569e41be7191ed76c1bb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1130156262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10534,9 +10546,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a539858ea39d81e40be59fd868d5bede, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameStartPanel: {fileID: 0}
-  gameOverPanel: {fileID: 0}
-  pausePanel: {fileID: 0}
+  gameStartUI: {fileID: 0}
+  gameOverUI: {fileID: 0}
+  pauseUI: {fileID: 0}
+  gameFibishUI: {fileID: 0}
 --- !u!4 &1684611514
 Transform:
   m_ObjectHideFlags: 0
