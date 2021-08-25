@@ -19,7 +19,7 @@ public class PlayerManager : MonoBehaviour
     void Start()
     {
         // reset the settings
-        //Time.timeScale = 1;
+        Time.timeScale = 1;
         //score = 0;
 
         // show gameStartUI and hide others
