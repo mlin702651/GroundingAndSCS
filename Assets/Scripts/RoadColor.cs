@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RoadColor : MonoBehaviour
 {
-    public int changeColor = 6;//通過多少門換一次顏色
+    public int changeColor = 6;//通過多少門換一次顏色 
     public Material material;
     public Color color01;
     public Color color02;
@@ -19,7 +19,7 @@ public class RoadColor : MonoBehaviour
     float countTime=0;
     bool countTimeEquleOne=false;
     //
-    public int score=0;
+    public float score=0;
 
 
     // Start is called before the first frame update
@@ -36,20 +36,23 @@ public class RoadColor : MonoBehaviour
     void Update()
     {
         // get score from PlayerManager
-        score = PlayerManager.score;
-
-        if (score % changeColor ==0 && !isChangingColor){
+        //score = PlayerManager.score;
+        score += Time.deltaTime;
+        if (score > changeColor && !isChangingColor){
             countColor+=1;
             countColor=countColor%3;
             isChangingColor=true;
             countTime=0;
+            score=0;
         }
        
         if(isChangingColor){
             chooseColor(countColor);
-            if(score%6!=0){
+            if(score>1.5){
                 isChangingColor=false;
             }
+            
+
         }
     }
 
