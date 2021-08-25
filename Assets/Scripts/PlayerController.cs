@@ -61,9 +61,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.transform.tag == "Wall")
         {
-            //PlayerManager.gameOver = true;
-            Scene scene = SceneManager.GetActiveScene();
-            SceneManager.LoadScene(scene.name);
+            PlayerManager.gameOver = true;
             Debug.Log("hit wall!");
         }
     }
