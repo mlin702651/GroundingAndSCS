@@ -42,8 +42,9 @@ public class PlayerManager : MonoBehaviour
     void Update()
     {
         // Press W, S, left, right to start
-        if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.S) &&
-            Input.GetKey(KeyCode.LeftArrow) && Input.GetKey(KeyCode.RightArrow))
+        //if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.S) &&
+        //    Input.GetKey(KeyCode.LeftArrow) && Input.GetKey(KeyCode.RightArrow))
+        if(Input.GetKeyDown(KeyCode.Space))
         {
             //Time.timeScale = 1;
             gameStart = true;
