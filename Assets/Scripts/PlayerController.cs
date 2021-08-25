@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     // speed settings
-    public static float moveSpeed = 1;
+    public float forwardSpeed = 0.5f;
+    public static float moveSpeed;
     public float rotationSpeed = 200f;
     public float currentRotationSpeed;
 
@@ -28,7 +29,7 @@ public class PlayerController : MonoBehaviour
         // if gameStart = false, don't start
         if (!PlayerManager.gameStart) { moveSpeed = 0; }
         else if (PlayerManager.gameOver) { moveSpeed = 0; return; }
-        else { moveSpeed = 1; }
+        else { moveSpeed = forwardSpeed; }
         
         
        
