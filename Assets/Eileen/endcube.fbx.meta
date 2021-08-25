@@ -3,7 +3,22 @@ guid: a9a299d9d7b313946935d5d345160f38
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: endcube_big_MT
+    second: {fileID: 2100000, guid: c4eb568331bd07c4dbe9df7624534c41, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: endcube_small_MT
+    second: {fileID: 2100000, guid: a8de1f0be791800429b5947cc305fdd0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: virusblack_mt
+    second: {fileID: 2100000, guid: c46375ce2455fd5489ebf83beeb0e8fa, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
