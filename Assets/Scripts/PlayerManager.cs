@@ -12,7 +12,7 @@ public class PlayerManager : MonoBehaviour
     //public static int score;
 
     // Panel for Pause, GameOver
-    public GameObject gameStartUI, gameOverUI, pauseUI, gameFibishUI;
+    public GameObject gameStartUI, gameOverUI, pauseUI, gameFinishUI;
 
 
     // Start is called before the first frame update
@@ -26,7 +26,7 @@ public class PlayerManager : MonoBehaviour
         gameStartUI.SetActive(true);
         gameOverUI.SetActive(false);
         pauseUI.SetActive(false);
-        gameFibishUI.SetActive(false);
+        gameFinishUI.SetActive(false);
         
 
         // set gaming bools
@@ -42,8 +42,9 @@ public class PlayerManager : MonoBehaviour
     void Update()
     {
         // Press W, S, left, right to start
-        if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.S) &&
-            Input.GetKey(KeyCode.LeftArrow) && Input.GetKey(KeyCode.RightArrow))
+        //if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.S) &&
+        //    Input.GetKey(KeyCode.LeftArrow) && Input.GetKey(KeyCode.RightArrow))
+        if(Input.GetKeyDown(KeyCode.Space))
         {
             //Time.timeScale = 1;
             gameStart = true;
@@ -63,7 +64,7 @@ public class PlayerManager : MonoBehaviour
         // finish
         if (finish)
         {
-            gameFibishUI.SetActive(true);
+            gameFinishUI.SetActive(true);
             
         }
 

@@ -7,6 +7,8 @@ public class Dissolve : MonoBehaviour
     //public GameObject doorTrigger;
     public Material material;
     public ParticleSystem particle;
+    
+    public AudioSource passDoorAudio;
     public float speed=1.5f;
     float count =0;
     bool pass=false;
@@ -26,7 +28,7 @@ public class Dissolve : MonoBehaviour
             if(count<=1){
                 count+=Time.deltaTime*speed;
                 material.SetFloat("_Dissolve",count);
-                
+                passDoorAudio.Play();
             }
         }
         Debug.Log(count);
@@ -35,7 +37,7 @@ public class Dissolve : MonoBehaviour
     
     void OnTriggerEnter(Collider other)
     {
-        if(other.tag=="player"){
+        if(other.tag=="Player"){
             pass=true;
             particle.Play();
         }
