@@ -30,8 +30,8 @@ CapsuleCollider:
   m_Height: 0.12641186
   m_Direction: 1
   m_Center: {x: 0.13495404, y: -0.12897566, z: 0.13143793}
---- !u!136 &7088725798886157888
-CapsuleCollider:
+--- !u!65 &4015332855758932204
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -40,10 +40,9 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.058623478
-  m_Height: 0.12445232
-  m_Direction: 1
-  m_Center: {x: -0.22239345, y: -0.104760796, z: -0.002483406}
+  serializedVersion: 2
+  m_Size: {x: 0.15138933, y: 0.02884428, z: 0.022359943}
+  m_Center: {x: -0.1359809, y: 0.1080583, z: -0.00369153}
 --- !u!136 &6781435113307556796
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -58,8 +57,8 @@ CapsuleCollider:
   m_Height: 0.12640083
   m_Direction: 1
   m_Center: {x: 0.10460985, y: 0.22270748, z: 0.10805525}
---- !u!65 &4015332855758932204
-BoxCollider:
+--- !u!136 &7088725798886157888
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -68,9 +67,10 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.15138933, y: 0.02884428, z: 0.022359943}
-  m_Center: {x: -0.1359809, y: 0.1080583, z: -0.00369153}
+  m_Radius: 0.058623478
+  m_Height: 0.12445232
+  m_Direction: 1
+  m_Center: {x: -0.22239345, y: -0.104760796, z: -0.002483406}
 --- !u!65 &8623453080859303553
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -84,6 +84,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.2541974, y: 0.2588001, z: 0.25257877}
   m_Center: {x: -0.004957495, y: 0.0038854026, z: -0.006528454}
+--- !u!114 &6809817636543216729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4252072360921598976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b94d4c0b19f2a924f8147f16dabdb6f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 200
+  currentRotationSpeed: 0
+  myAngles: {x: 0, y: 0, z: 0}
+  rotateAngles: {x: 0, y: 0, z: 0}
 --- !u!1001 &4018069144953958737
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -164,7 +180,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e810a988d58fcf04eb4f7832900cff66,
         type: 3}
       propertyPath: m_Name
-      value: virus_D
+      value: virus_D(collider)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e810a988d58fcf04eb4f7832900cff66, type: 3}

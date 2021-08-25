@@ -26,7 +26,14 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         // if gameStart = false, don't start
-        if (!PlayerManager.gameStart)return; 
+        if (!PlayerManager.gameStart)
+            return;
+        if (PlayerManager.gameOver)
+        {
+            moveSpeed = 0;
+            return;
+        }
+        
        
 
         // move
@@ -59,11 +66,18 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        /*
         if (collision.transform.tag == "Wall")
         {
-            PlayerManager.gameOver = true;
+            //PlayerManager.gameOver = true;
+            //Scene scene = SceneManager.GetActiveScene();
+            //SceneManager.LoadScene(scene.name);
             Debug.Log("hit wall!");
         }
+        */
+
+        PlayerManager.gameOver = true;
+        Debug.Log("hit wall!");
     }
 
     void SmoothRoatation(float currentRotationSpeed)
