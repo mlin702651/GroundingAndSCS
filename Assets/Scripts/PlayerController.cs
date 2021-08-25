@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
     {
         // if gameStart = false, don't start
         if (!PlayerManager.gameStart) { moveSpeed = 0; }
+        else if (PlayerManager.finish) { moveSpeed = 0; return; }
         else if (PlayerManager.gameOver) { moveSpeed = 0; return; }
         else { moveSpeed = forwardSpeed; }
         
@@ -106,9 +107,18 @@ public class PlayerController : MonoBehaviour
             Debug.Log("hit wall!");
         }
         */
+        if(collision.transform.tag == "Wall")
+        {
+            PlayerManager.finish = true;
+            Debug.Log("finish!");
+        }
+        else
+        {
+            PlayerManager.gameOver = true;
+            Debug.Log("hit wall!");
+        }
 
-        PlayerManager.gameOver = true;
-        Debug.Log("hit wall!");
+        
     }
 
     void SmoothRoatation(float currentRotationSpeed)
