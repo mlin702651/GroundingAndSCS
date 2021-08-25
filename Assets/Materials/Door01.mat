@@ -76,7 +76,7 @@ Material:
     - _BumpScale: 1
     - _Cull: 2
     - _Cutoff: 0.5
-    - _Dissolve: 1.0003928
+    - _Dissolve: 0
     - _DstBlend: 0
     - _EnvironmentReflections: 1
     - _GlossMapScale: 0
@@ -94,7 +94,7 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Color_63DC3F68: {r: 1, g: 1, b: 1, a: 0}
+    - Color_63DC3F68: {r: 0.7216981, g: 0.7442828, b: 1, a: 0}
     - Color_BE79EE7F: {r: 1, g: 0, b: 0.09163618, a: 0}
     - Vector2_97667523: {r: 1, g: 1, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}

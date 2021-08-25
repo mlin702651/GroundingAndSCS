@@ -81,7 +81,7 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Color_63DC3F68: {r: 1, g: 1, b: 1, a: 0}
+    - Color_63DC3F68: {r: 1, g: 0.1745283, b: 0.73085195, a: 0}
     - Color_BE79EE7F: {r: 1, g: 0.5333334, b: 0.7764706, a: 0}
     - Vector2_97667523: {r: 1, g: 1, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
