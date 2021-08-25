@@ -26,13 +26,10 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         // if gameStart = false, don't start
-        if (!PlayerManager.gameStart)return;
-
-        if (PlayerManager.gameOver)
-        {
-            moveSpeed = 0;
-            return;
-        }
+        if (!PlayerManager.gameStart) { moveSpeed = 0; }
+        else if (PlayerManager.gameOver) { moveSpeed = 0; return; }
+        else { moveSpeed = 1; }
+        
         
        
 
@@ -55,6 +52,11 @@ public class PlayerController : MonoBehaviour
         else
         {
             SmoothRoatation(currentRotationSpeed);
+        }
+
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            transform.rotation =  Quaternion.Euler(0, 0, 0);
         }
         
        
