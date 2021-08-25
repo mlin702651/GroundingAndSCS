@@ -92,19 +92,15 @@ public class PlayerManager : MonoBehaviour
        
     }
 
-    public void Next()
+    public void Next1()
     {
-        Scene thisScene = SceneManager.GetActiveScene();
-        if (thisScene.rootCount < 3)
-        {
-            SceneManager.LoadScene(thisScene.rootCount + 1);
-        }
-            
-        else
-        {
-            Debug.Log("finish all!");
-        }
-            
+        SceneManager.LoadScene(2);
+    }
+
+
+    public void Next2()
+    {
+        SceneManager.LoadScene(3);
     }
 
     public void BackToMenu()
